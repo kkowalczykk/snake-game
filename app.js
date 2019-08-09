@@ -10,27 +10,31 @@ let food = {
       y: Math.floor(Math.random() * 24) * 20,
 }
 
-let game = setInterval(() => {
-      s.update(food);
+pickFoodLocation = (food) => {
+      food.x = Math.floor(Math.random() * 24) * 20;
+      food.y = Math.floor(Math.random() * 24) * 20;
+}
+
+let update = setInterval(() => {
+      s.update();
+      s.eat(food);
+      s.draw(food);
 }, 100);
+
 
 const setDirection = (e) => {
       let key = e.keyCode;
       if (key == 37 && s.xspeed == 0) {
             s.direction(-1, 0);
-            console.log("lewo");
       }
       else if (key == 38 && s.yspeed == 0) {
             s.direction(0, -1);
-            console.log("góra");
       }
       else if (key == 39 && s.xspeed == 0) {
             s.direction(1, 0);
-            console.log("prawo");
       }
       else if (key == 40 && s.yspeed == 0) {
             s.direction(0, 1);
-            console.log("dół");
       }
 }
 
