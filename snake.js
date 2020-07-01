@@ -7,9 +7,7 @@ function Snake(f) {
       this.snakeLength = 0;
       this.tail = [];
 
-
       this.update = () => {
-
 
             if (this.snakeLength == this.tail.length) {
                   for (let i = 0; i < this.snakeLength; i++) {
@@ -38,7 +36,6 @@ function Snake(f) {
             for (let i = 0; i < this.snakeLength; i++) {
                   ctx.fillRect(this.tail[i].x, this.tail[i].y, this.snakeBox, this.snakeBox);
                   ctx.strokeRect(this.tail[i].x, this.tail[i].y, this.snakeBox, this.snakeBox);
-                  //     console.log(`To jest ${i} iteracja a x wynosi: ${this.tail[i].x}`);
             }
             ctx.fillStyle = `rgb(40,255,20)`;
             ctx.fillRect(this.x, this.y, this.snakeBox, this.snakeBox);
@@ -63,7 +60,7 @@ function Snake(f) {
             if (this.x == f.x && this.y == f.y) {
                   pickFoodLocation(food);
                   this.snakeLength++;
-                  //console.log(this.tail);
+                  return this.snakeLength;
             }
       }
 
